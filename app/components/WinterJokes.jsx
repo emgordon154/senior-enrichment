@@ -109,11 +109,20 @@ A: A receding hare line.
 Q: Why are bad school grades like a shipwreck in the Arctic Ocean?
 A: They're both below C level!`
   .split('\n')
-  .reduce((all, row, i) => (
+  // .reduce((all, row, i) => (
+  //   i % 2 === 0
+  //   ? [...all, {question: row}]
+  //   : [...all.slice(0, all.length - 1), Object.assign({answer: row}, all[all.length - 1])]),
+  //   [])
+  // This is trolling, right??
+  // Why not instead:
+  .map((row, i) => (
     i % 2 === 0
-    ? [...all, {question: row}]
-    : [...all.slice(0, all.length - 1), Object.assign({answer: row}, all[all.length - 1])]),
-    [])
+    ? {question: row}
+    : {answer: row}
+  ))
+
+console.log(jokes)
 
 function randomJoke() {
   return jokes[Math.floor(Math.random() * jokes.length)]

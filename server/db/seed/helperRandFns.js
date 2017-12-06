@@ -1,8 +1,3 @@
-// import db, { Campus, Student } from './index.js'
-
-const db = require('./models/index.js')
-const Campus = require('./models/campus')
-const Student = require('./models/student')
 
 // returns a random integer in a range inclusive of both min and max
 const randInt = (min, max) => {
@@ -56,20 +51,8 @@ const randomStudent = () => {
 
 const randomCampus = () => {
   return {
-    name: randomName() + ' Academy '
+    name: randomName() + ' Academy'
   }
 }
 
-// Neat little code golf trick I learned...
-// You can spread an array of empties to get that many undefineds!
-const students = [...Array(100)].map( _ => randomStudent() )
-
-const campuses = [...Array(6)].map( _ => randomCampus() )
-
-db.sync({force: true})
-  .then(() => Student.bulkCreate(students))
-  .then(() => console.log('refresh Postico and check out the students!'))
-  .then(() => Campus.bulkCreate(campuses))
-  .then(() => console.log('and campuses too!'))
-  .catch(() => console.error('😱'))
-
+module.exports = { randomStudent, randomCampus }

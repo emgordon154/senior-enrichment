@@ -15,6 +15,7 @@ const Student = require('./student')
 // This is also probably a good place for you to set up your associations
 
 Student.belongsTo(Campus)
+Campus.hasMany(Student)
 
 
-module.exports = db
+module.exports = { Campus, Student }

@@ -5,8 +5,8 @@ const { resolve } = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const extractSass = new ExtractTextPlugin({
-  filename: '[name].[contentHash].css',
-  disable: process.env.NODE_ENV === 'development'
+  filename: 'styles.css',
+  // disable: process.env.NODE_ENV === 'development'
 })
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /jsx?$/,
+        test: /\.jsx?$/,
         include: resolve(__dirname, './app'),
         loader: 'babel-loader',
         query: {
@@ -31,7 +31,7 @@ module.exports = {
         }
       },
       {
-        test: /scss$/,
+        test: /\.sass$/,
         include: resolve(__dirname, './app'),
         use: extractSass.extract({
           use: [
@@ -44,7 +44,7 @@ module.exports = {
               options: { sourceMap: true }
             }
           ],
-          fallback: 'style-loader'
+          // fallback: 'style-loader'
         })
       }
     ]
