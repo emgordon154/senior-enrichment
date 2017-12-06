@@ -2,6 +2,13 @@
 
 const { resolve } = require('path')
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+const extractSass = new ExtractTextPlugin({
+  filename: '[name].[contentHash].css',
+  disable: process.env.NODE_ENV === 'development'
+})
+
 module.exports = {
   entry: './app/main',
   output: {
@@ -26,11 +33,13 @@ module.exports = {
       {
         test: /scss$/,
         include: resolve(__dirname, './app'),
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
-        ]
+        use: extractSass.extract({
+          use: [
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' }
+          ],
+          fallback: 'style-loader'
+        })
       }
     ]
   }
