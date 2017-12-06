@@ -1,6 +1,6 @@
 'use strict';
 
-import db from '../index.js'
+const db = require('../')
 
 
 // Require all the models
@@ -8,8 +8,8 @@ import db from '../index.js'
 	// This works if we all use the same Sequelize instance (instantiated in and exported from `/db/index.js`)
 	// Exporting all models from here seems like a good idea!
 
-import Campus from './campus'
-import Student from './student'
+const Campus = require('./campus')
+const Student = require('./student')
 
 
 // This is also probably a good place for you to set up your associations

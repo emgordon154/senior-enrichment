@@ -1,6 +1,6 @@
 // import db, { Campus, Student } from './index.js'
 
-const db = require('./index.js')
+const db = require('./models/index.js')
 const Campus = require('./models/campus')
 const Student = require('./models/student')
 
