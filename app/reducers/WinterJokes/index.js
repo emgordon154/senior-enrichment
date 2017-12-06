@@ -18,6 +18,7 @@ export const answerJoke = () => {
 }
 
 export default function reducer(jokeState = initialJokeState, action) {
+  console.log(action)
   switch (action.type) {
     case ANSWER_JOKE: return {
       joke: jokeState.joke,

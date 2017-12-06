@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 import WinterJokes from './WinterJokes'
 
 const rootReducer = combineReducers({
-  WinterJokes,
+  jokeState: WinterJokes,
 })
 
 // const initialState = {}

@@ -1,25 +1,31 @@
 import React from 'react'
-import { connect } from 'redux'
+import { connect } from 'react-redux'
 import { getNextJoke, answerJoke } from '../reducers/WinterJokes/'
 
 const mapStateToProps = state => {
+  console.log('state: ', state)
+  console.log( {...state.jokeState})
   return {...state.jokeState}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: ownProps.answered ? getNextJoke : answerJoke
+    handleClick: () => {
+      let event = ownProps.answered ? getNextJoke() : answerJoke()
+      dispatch(event)
+    }
   }
 }
 
-const WinterJokes = props => (
-  (
+const WinterJokes = props => {
+  console.log('props: ', props)
+  return (
       <div>
-        <h1 onClick={props.answered ? props.nextJoke : props.answerJoke}>{props.joke.question}</h1>
+        <h1 onClick={props.handleClick}>{props.joke.question}</h1>
         {props.answered && <h2>{props.joke.answer}</h2>}
       </div>
     )
-)
+  }
 
 const WinterJokesContainer = connect(mapStateToProps, mapDispatchToProps)(WinterJokes)
 
@@ -87,7 +93,7 @@ export default WinterJokesContainer
 // A: Nothing. It just waved.
 // Q: What sits on the bottom of the cold Arctic Ocean and shakes?
 // A: A nervous wreck.
-// Q: How do you know if there's a snowman in your bed? 
+// Q: How do you know if there's a snowman in your bed?
 // A: You wake up wet!
 // Q: How do you tell the difference between a walrus and an orange?
 // A: Put your arms around it and squeeze it. If you don't get orange juice, it's a walrus.

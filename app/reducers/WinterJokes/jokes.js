@@ -67,18 +67,18 @@ A: A receding hare line.
 Q: Why are bad school grades like a shipwreck in the Arctic Ocean?
 A: They're both below C level!`
   .split('\n')
-  // .reduce((all, row, i) => (
-  //   i % 2 === 0
-  //   ? [...all, {question: row}]
-  //   : [...all.slice(0, all.length - 1), Object.assign({answer: row}, all[all.length - 1])]),
-  //   [])
+  .reduce((all, row, i) => (
+    i % 2 === 0
+    ? [...all, {question: row}]
+    : [...all.slice(0, all.length - 1), Object.assign({answer: row}, all[all.length - 1])]),
+    [])
   // This provided code is trolling, right??
   // Why not instead:
-  .map((row, i) => (
-    i % 2 === 0
-    ? {question: row}
-    : {answer: row}
-  ))
+  // .map((row, i) => (
+  //   i % 2 === 0
+  //   ? {question: row}
+  //   : {answer: row}
+  // ))
 
 export default function randomJoke() {
   return jokes[Math.floor(Math.random() * jokes.length)]
