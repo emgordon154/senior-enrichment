@@ -42,5 +42,8 @@ module.exports = {
         })
       }
     ]
-  }
+  },
+  plugins: [
+    extractSass
+  ]
 };
