@@ -22,6 +22,15 @@ module.exports = {
         query: {
           presets: ['react', 'env', 'stage-2']
         }
+      },
+      {
+        test: /scss$/,
+        include: resolve(__dirname, './app'),
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
+        ]
       }
     ]
   }
