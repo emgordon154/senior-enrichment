@@ -15,7 +15,7 @@ isn't valid. If you don't change it, things won't work right.
 Please change it in ${__dirname}/package.json
 ********************************************************************`
 
-const reasonableName = /^[\w\-]+$/
+const reasonableName = /^[\w-]+$/
 if (!reasonableName.test(pkg.name)) {
   console.error(chalk.red(nameError))
 }

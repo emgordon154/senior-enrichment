@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const db = require('./db')
 
 //logging middleware
 app.use(volleyball);
@@ -24,15 +23,6 @@ app.use('/api', require('./api')); // include our routes!
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 }); // Send index.html for any other requests
-
-const PORT = 3000
-
-db.sync()
-.then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is up on port ${PORT}! 😎`)
-  })
-})
 
 //error handling middleware
 app.use((err, req, res, next) => {

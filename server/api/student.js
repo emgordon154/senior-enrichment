@@ -4,35 +4,32 @@ const { Student } = require('../db')
 
 studentRouter.get('/', (req, res, next) => {
   Student.findAll()
-    .then(students => res.status(200).send(students))
+    .then(students => res.status(200).json(students))
     .catch(next)
 })
 
 studentRouter.get('/:studentId', (req, res, next) => {
   Student.findById(req.params.studentId)
-    .then(foundStudent => res.status(200).send(foundStudent))
+    .then(foundStudent => res.status(200).json(foundStudent))
     .catch(next)
 })
 
 studentRouter.post('/', (req, res, next) => {
   Student.create(req.body)
-    .then(createdStudent => res.status(201).send(createdStudent))
+    .then(createdStudent => res.status(201).json(createdStudent))
     .catch(next)
 })
 
 studentRouter.put('/:studentId', (req, res, next) => {
   Student.findById(req.params.studentId)
     .then(foundStudent => foundStudent.update(req.body))
-    .then(updatedStudent => res.status(200).send(updatedStudent))
+    .then(updatedStudent => res.status(200).json(updatedStudent))
     .catch(next)
 })
 
 studentRouter.delete('/:studentId', (req, res, next) => {
-  Student.destroy({
-    where: {
-      id: req.params.studentId
-    }
-  })
+  Student.findById(req.params.studentId)
+    .then(unwelcomeStudent => unwelcomeStudent.destroy())
     .then(() => res.status(200).redirect('./'))
     .catch(next)
 })
