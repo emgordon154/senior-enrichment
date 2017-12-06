@@ -3,29 +3,24 @@ import { connect } from 'react-redux'
 import { getNextJoke, answerJoke } from '../reducers/WinterJokes/'
 
 const mapStateToProps = state => {
-  console.log('state: ', state)
-  console.log( {...state.jokeState})
   return {...state.jokeState}
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    handleClick: () => {
-      let event = ownProps.answered ? getNextJoke() : answerJoke()
-      dispatch(event)
-    }
+const mapDispatchToProps = (dispatch) => ({
+  handleClick: (answered) => {
+    return answered ? () => dispatch(getNextJoke())
+                    : () => dispatch(answerJoke())
   }
-}
+})
 
-const WinterJokes = props => {
-  console.log('props: ', props)
-  return (
-      <div>
-        <h1 onClick={props.handleClick}>{props.joke.question}</h1>
-        {props.answered && <h2>{props.joke.answer}</h2>}
-      </div>
-    )
-  }
+const WinterJokes = props => (
+  <div>
+    <h1 onClick={props.handleClick(props.answered)}>
+      {props.joke.question}
+    </h1>
+    {props.answered && <h2>{props.joke.answer}</h2>}
+  </div>
+)
 
 const WinterJokesContainer = connect(mapStateToProps, mapDispatchToProps)(WinterJokes)
 
