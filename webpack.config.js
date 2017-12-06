@@ -35,8 +35,14 @@ module.exports = {
         include: resolve(__dirname, './app'),
         use: extractSass.extract({
           use: [
-            { loader: 'css-loader' },
-            { loader: 'sass-loader' }
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true }
+            },
+            {
+              loader: 'sass-loader',
+              options: { sourceMap: true }
+            }
           ],
           fallback: 'style-loader'
         })
