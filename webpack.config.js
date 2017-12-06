@@ -14,7 +14,7 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /jsx?$/,
         include: resolve(__dirname, './app'),
