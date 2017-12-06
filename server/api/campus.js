@@ -30,7 +30,7 @@ campusRouter.put('/:campusId', (req, res, next) => {
 campusRouter.delete('/:campusId', (req, res, next) => {
   Campus.findById(req.params.campusId)
     .then(condemnedCampus => condemnedCampus.destroy())
-    .then(() => res.status(200).redirect('./'))
+    .then(() => res.status(200).send())
     .catch(next)
 })
 

@@ -30,7 +30,7 @@ studentRouter.put('/:studentId', (req, res, next) => {
 studentRouter.delete('/:studentId', (req, res, next) => {
   Student.findById(req.params.studentId)
     .then(unwelcomeStudent => unwelcomeStudent.destroy())
-    .then(() => res.status(200).redirect('./'))
+    .then(() => res.status(200).send())
     .catch(next)
 })
 
