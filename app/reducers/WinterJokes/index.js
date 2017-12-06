@@ -9,9 +9,18 @@ let initialJokeState = {
   answered: false
 }
 
+export const getNextJoke = () => {
+  return {type: NEXT_JOKE}
+}
+
+export const answerJoke = () => {
+  return {type: ANSWER_JOKE}
+}
+
 export default function reducer(jokeState = initialJokeState, action) {
   switch (action.type) {
     case ANSWER_JOKE: return {
+      joke: jokeState.joke,
       answered: true
     }
 
