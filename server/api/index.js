@@ -1,7 +1,7 @@
 'use strict'
 
-import campusRouter from './campus'
-import studentRouter from './student'
+const campusRouter = require('./campus')
+const studentRouter = require('./student')
 
 const apiRouter = require('express').Router()
 //const db = require('../db')

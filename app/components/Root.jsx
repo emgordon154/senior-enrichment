@@ -4,7 +4,7 @@ import React, { Component } from 'react';
    This code is just a nice BIG example of how you can make a component.
    Also it is HILARIOUS :D Have fun!
  */
- 
+
 export default class WinterJokes extends Component {
   constructor() {
     super()
@@ -30,7 +30,7 @@ export default class WinterJokes extends Component {
   render() {
     if (!this.state) { return null }
 
-    const {joke, answered} = this.state    
+    const {joke, answered} = this.state
     return (
       <div>
         <h1 onClick={answered ? this.nextJoke : this.answer}>{joke.q}</h1>
@@ -38,10 +38,6 @@ export default class WinterJokes extends Component {
       </div>
     )
   }
-}
-
-function randomJoke() {
-  return jokes[Math.floor(Math.random() * jokes.length)]
 }
 
 const jokes = `Q: What did the Arctic wolf ask in the restaurant?
@@ -113,8 +109,13 @@ A: A receding hare line.
 Q: Why are bad school grades like a shipwreck in the Arctic Ocean?
 A: They're both below C level!`
   .split('\n')
-  .reduce((all, row, i) =>
+  .reduce((all, row, i) => (
     i % 2 === 0
     ? [...all, {q: row}]
     : [...all.slice(0, all.length - 1), Object.assign({a: row}, all[all.length - 1])],
-    [])
+    []))
+
+function randomJoke() {
+  return jokes[Math.floor(Math.random() * jokes.length)]
+}
+

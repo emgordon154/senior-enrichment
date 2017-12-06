@@ -36,3 +36,5 @@ studentRouter.delete('/:studentId', (req, res, next) => {
     .then(() => res.status(200).redirect('./'))
     .catch(next)
 })
+
+module.exports = studentRouter
