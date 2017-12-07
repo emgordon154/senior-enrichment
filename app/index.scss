@@ -21,11 +21,14 @@ nav {
 }
 
 #about-academy {
-    background-color: #010214;
+    // background-color: #010214;
+
+    * {
+        // color: #61f1f1;
+    }
 
     #academy-name, #blurb, h2, #false-mission, #true-mission {
         text-align: center;
-        color: #61f1f1;
     }
 
     #academy-name {
@@ -40,16 +43,16 @@ nav {
         font-size: 36px
     }
 
-    > #false-mission {
+    #false-mission {
         font-size: 18px;
         text-decoration: line-through
     }
 
-    > #true-mission {
+    #true-mission {
         font-size: 24px;
     }
 
-    > #note-to-self {
+    #note-to-self {
         font-style: italic
     }
         
