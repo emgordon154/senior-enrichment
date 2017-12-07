@@ -1,6 +1,6 @@
 
 const db = require('../index.js')
-const { Campus, Student } = require('../models/index.js')
+const { Campus, Student, Joke } = require('../models/')
 const { randomStudent, randomCampus } = require('./helperRandFns')
 
 
@@ -10,10 +10,13 @@ const { randomStudent, randomCampus } = require('./helperRandFns')
 const students = [...Array(100)].map( _ => randomStudent() )
 const campuses = [...Array(6)].map( _ => randomCampus() )
 
+const jokes = require('./joke')
+
 db.sync({force: true})
   .then(() => Promise.all([
     Student.bulkCreate(students),
-    Campus.bulkCreate(campuses)
+    Campus.bulkCreate(campuses),
+    Joke.bulkCreate(jokes)
   ]))
   .then(() => console.log('refresh Postico! :3c'))
   .catch(() => console.error('😱'))

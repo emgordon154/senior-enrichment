@@ -2,6 +2,7 @@
 
 const campusRouter = require('./campus')
 const studentRouter = require('./student')
+const jokeRouter = require('./joke')
 
 const apiRouter = require('express').Router()
 //const db = require('../db')
@@ -15,5 +16,6 @@ apiRouter.get('/hello', (req, res) => res.send({hello: 'world'}))
 
 apiRouter.use('/campus', campusRouter)
 apiRouter.use('/student', studentRouter)
+apiRouter.use('/joke', jokeRouter)
 
 module.exports = apiRouter;

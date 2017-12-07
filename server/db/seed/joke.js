@@ -67,19 +67,27 @@ A: A receding hare line.
 Q: Why are bad school grades like a shipwreck in the Arctic Ocean?
 A: They're both below C level!`
   .split('\n')
-  .reduce((all, row, i) => (
-    i % 2 === 0
-    ? [...all, {question: row}]
-    : [...all.slice(0, all.length - 1), Object.assign({answer: row}, all[all.length - 1])]),
-    [])
+  // .reduce((all, row, i) => (
+  //   i % 2 === 0
+  //   ? [...all, {question: row}]
+  //   : [...all.slice(0, all.length - 1), Object.assign({answer: row}, all[all.length - 1])]),
+  //   [])
+  //
   // This provided code is trolling, right??
   // Why not instead:
-  // .map((row, i) => (
+  //
+  // .map((row, i, jokeStrings) => (
   //   i % 2 === 0
-  //   ? {question: row}
-  //   : {answer: row}
+  //   ? {question: row, answer: jokeStrings[i + 1]}
+  //   : undefined
   // ))
+  // .filter(joke => joke !== undefined)
+  //
+  // or, if that's not efficient enough, how about
+  .reduce((jokeObjects, row, i, jokeStrings) => (
+    i % 2 === 0
+    ? [...jokeObjects, {question: row, answer: jokeStrings[i + 1]}]
+    : [...jokeObjects]),
+  [])
 
-export default function randomJoke() {
-  return jokes[Math.floor(Math.random() * jokes.length)]
-}
+export default jokes

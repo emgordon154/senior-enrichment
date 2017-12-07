@@ -10,6 +10,7 @@ const db = require('../')
 
 const Campus = require('./campus')
 const Student = require('./student')
+const Joke = require('./joke')
 
 
 // This is also probably a good place for you to set up your associations
@@ -18,4 +19,4 @@ Student.belongsTo(Campus)
 Campus.hasMany(Student)
 
 
-module.exports = { Campus, Student }
+module.exports = { Campus, Student, Joke }
