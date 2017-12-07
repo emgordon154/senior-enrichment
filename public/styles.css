@@ -1,0 +1,8 @@
+#navbar-elements {
+  display: flex;
+  flex-direction: row; }
+
+#joke-question, #joke-answer {
+  font-family: "Comic Sans", cursive, sans-serif; }
+
+/*# sourceMappingURL=styles.css.map*/

@@ -19,10 +19,10 @@ const mapDispatchToProps = (dispatch) => {
 
 const WinterJokes = props => (
   <div>
-    <h1 onClick={props.handleClick(props.answered)}>
+    <h1 onClick={props.handleClick(props.answered)} id="joke-question">
       {props.joke.question}
     </h1>
-    {props.answered && <h2>{props.joke.answer}</h2>}
+    {props.answered && <h2 id="joke-answer">{props.joke.answer}</h2>}
   </div>
 )
 

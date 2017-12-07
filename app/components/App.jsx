@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Header from './Header'
-import WinterJokes from './WinterJokes'
+import Home from './Home'
 
 const App = () => (
   <header>
     <Header />
-    <WinterJokes />
+    <Home />
   </header>
 )
 

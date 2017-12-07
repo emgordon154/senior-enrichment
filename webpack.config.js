@@ -2,12 +2,12 @@
 
 const { resolve } = require('path')
 
-// const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-// const extractSass = new ExtractTextPlugin({
-//   filename: './public/styles.css',
-//   // disable: process.env.NODE_ENV === 'development'
-// })
+const extractSass = new ExtractTextPlugin({
+  filename: './public/styles.css',
+  // disable: process.env.NODE_ENV === 'development'
+})
 
 module.exports = {
   entry: './app/main',
@@ -31,10 +31,14 @@ module.exports = {
         }
       },
       {
-        test: /\.sass$/,
+        test: /\.s[ac]ss$/,
         include: resolve(__dirname, './app'),
-        // use: extractSass.extract({
+        use: extractSass.extract({
           use: [
+            // {
+            //   loader: 'style-loader',
+            //   options: { sourceMap: true }
+            // },
             {
               loader: 'css-loader',
               options: { sourceMap: true }
@@ -42,18 +46,14 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: { sourceMap: true }
-            },
-            {
-              loader: 'style-loader',
-              options: { sourceMap: true }
             }
           ],
-          // fallback: 'style-loader'
-        // })
+          fallback: 'style-loader'
+        })
       }
     ]
   },
-  // plugins: [
-  //   extractSass
-  // ]
+  plugins: [
+    extractSass
+  ]
 };
