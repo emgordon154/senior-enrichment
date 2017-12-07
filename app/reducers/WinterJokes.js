@@ -9,7 +9,6 @@ const jokesLoaded = allJokes => ({
     allJokes
 })
 
-
 export const getJokesFromServer = () => {
   return dispatch => {
     Axios.get('/api/joke')
@@ -22,11 +21,9 @@ export const getJokesFromServer = () => {
   }
 }
 
-
 export const getNextJoke = () => {
   return {type: NEXT_JOKE}
 }
-
 
 export const answerJoke = () => {
   return {type: ANSWER_JOKE}
