@@ -1,6 +1,6 @@
 'use strict';
 
-import './index.sass'
+import './index.scss'
 
 import React from 'react'
 import { render } from 'react-dom'

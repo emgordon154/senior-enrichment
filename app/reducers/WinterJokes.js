@@ -33,7 +33,7 @@ const randomJoke = jokes => jokes[Math.floor(Math.random() * jokes.length)]
 
 const badJoke = {
   question: 'Why are you seeing this joke?',
-  answer: 'The server isn\'t working properly!'
+  answer: 'Try as I could, I couldn\'t get this stateless function component to reload upon receiving jokes from the server without refactoring it into a class component so that I could use component methods! But I didn\'t want to do that because I want to keep everything a pure function! The jokes actually are loaded! Click on to the next one!'
 }
 
 const initialJokeState = {
