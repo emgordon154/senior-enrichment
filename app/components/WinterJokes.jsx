@@ -1,17 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getNextJoke, answerJoke } from '../reducers/WinterJokes/'
+import { getJokesFromServer, getNextJoke, answerJoke } from '../reducers/WinterJokes'
+import { withRouter } from 'react-router-dom'
 
 const mapStateToProps = state => {
   return {...state.jokeState}
 }
 
-const mapDispatchToProps = dispatch => ({
-  handleClick: answered => {
-    return answered ? () => dispatch(getNextJoke())
-                    : () => dispatch(answerJoke())
+const mapDispatchToProps = (dispatch) => {
+  dispatch(getJokesFromServer())
+  return {
+    handleClick: answered => {
+      return answered ? () => dispatch(getNextJoke())
+                      : () => dispatch(answerJoke())
+    }
   }
-})
+}
 
 const WinterJokes = props => (
   <div>
@@ -22,6 +26,6 @@ const WinterJokes = props => (
   </div>
 )
 
-const WinterJokesContainer = connect(mapStateToProps, mapDispatchToProps)(WinterJokes)
+const WinterJokesContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(WinterJokes))
 
 export default WinterJokesContainer

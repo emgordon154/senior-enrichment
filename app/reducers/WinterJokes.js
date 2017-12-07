@@ -1,51 +1,65 @@
 import Axios from 'axios'
 
-let jokes = [
-  {
-    question: 'Why are you seeing this joke?',
-    answer: 'Because the Axios request hasn\'t completed yet!'
-  }
-]
-
-Axios.get('/joke')
-  .then(res => res.data)
-  .then(jokesFromServer => {
-    jokes = jokesFromServer
-  })
-  .catch((error) => {
-    console.log('uh oh lmao')
-    console.error(error)
-  })
-
-function randomJoke() {
-  return jokes[Math.floor(Math.random() * jokes.length)]
-}
-
-const initialJokeState = {
-  joke: randomJoke(),
-  answered: false
-}
-
+const JOKES_LOADED = 'JOKES_LOADED'
 const NEXT_JOKE = 'NEXT_JOKE'
 const ANSWER_JOKE = 'ANSWER_JOKE'
+
+const jokesLoaded = allJokes => ({
+    type: JOKES_LOADED,
+    allJokes
+})
+
+
+export const getJokesFromServer = () => {
+  return dispatch => {
+    Axios.get('/api/joke')
+      .then(res => res.data)
+      .then(allJokes => dispatch(jokesLoaded(allJokes)))
+      .catch(err => {
+        console.log('uh oh lmao')
+        console.error(err)
+      })
+  }
+}
+
 
 export const getNextJoke = () => {
   return {type: NEXT_JOKE}
 }
 
+
 export const answerJoke = () => {
   return {type: ANSWER_JOKE}
 }
 
+const randomJoke = jokes => jokes[Math.floor(Math.random() * jokes.length)]
+
+const badJoke = {
+  question: 'Why are you seeing this joke?',
+  answer: 'The server isn\'t working properly!'
+}
+
+const initialJokeState = {
+  allJokes: [badJoke],
+  joke: badJoke,
+  answered: false
+}
+
 export default function reducer(jokeState = initialJokeState, action) {
   switch (action.type) {
+    case JOKES_LOADED: return {
+      ...jokeState,
+      allJokes: action.allJokes
+    }
+
     case ANSWER_JOKE: return {
-      joke: jokeState.joke,
+      ...jokeState,
       answered: true
     }
 
     case NEXT_JOKE: return {
-      joke: randomJoke(),
+      ...jokeState,
+      joke: randomJoke(jokeState.allJokes),
       answered: false
     }
 

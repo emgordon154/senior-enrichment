@@ -86,8 +86,8 @@ A: They're both below C level!`
   // or, if that's not efficient enough, how about
   .reduce((jokeObjects, row, i, jokeStrings) => (
     i % 2 === 0
-    ? [...jokeObjects, {question: row, answer: jokeStrings[i + 1]}]
+    ? [...jokeObjects, {question: row, answer: jokeStrings[i + 1], topic: 'winter'}]
     : [...jokeObjects]),
   [])
 
-export default jokes
+module.exports = jokes
