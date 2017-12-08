@@ -1081,6 +1081,10 @@ caniuse-lite@^1.0.30000770:
   version "1.0.30000778"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000778.tgz#f1e7cb8b13b1f6744402291d75f0bcd4c3160369"
 
+canvas-animator@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/canvas-animator/-/canvas-animator-0.2.5.tgz#43f290fe815604d90ff6af02cb293e7603394518"
+
 capture-stack-trace@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.0.tgz#4a6fa07399c26bba47f0b2496b4d0fb408c5550d"

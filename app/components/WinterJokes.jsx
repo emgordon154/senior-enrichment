@@ -17,12 +17,12 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const emojify = joke => joke.replace(/O/g, '😂')
+const emojify = joke => joke.replace(/O/ig, '😂') // ;)
 
-const WinterJokes = props => (
+const WinterJokes = props => ( props.joke &&
   <div>
     <h1 onClick={props.handleClick(props.answered)} id="joke-question">
-      {emojify(props.joke.question)}
+      {props.joke.question}
     </h1>
     {props.answered && <h2 id="joke-answer">{emojify(props.joke.answer)}</h2>}
   </div>

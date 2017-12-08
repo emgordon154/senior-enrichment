@@ -9,16 +9,21 @@ const gotCampuses = campuses => ({
   campuses
 })
 
-export const getCampusesFromServer = () => {
-  return dispatch => {
-    axios.get('/campus')
+export const getCampusesFromServer = () => (
+  dispatch => (
+    axios.get('/api/campus')
       .then(res => res.data)
       .then(campuses => dispatch(gotCampuses(campuses)))
-  }
-}
+      .catch(err => {
+        console.log('uh oh lmao')
+        console.error(err)
+      })
+  )
+)
 
 export default function reducer(campuses = initialCampuses, action) {
   switch (action.type) {
+    case GOT_CAMPUSES: return action.campuses
 
     default: return campuses
   }

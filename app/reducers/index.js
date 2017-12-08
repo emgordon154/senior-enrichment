@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux'
 
-import WinterJokes from './WinterJokes'
+import jokeState from './WinterJokes'
 import campuses from './CampusList'
+import campus from './CampusInfo'
 import students from './StudentList'
 
 const rootReducer = combineReducers({
-  jokeState: WinterJokes,
+  jokeState,
   campuses,
+  campus,
   students
 })
 

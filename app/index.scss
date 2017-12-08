@@ -23,9 +23,9 @@ nav {
 #about-academy {
     // background-color: #010214;
 
-    * {
-        // color: #61f1f1;
-    }
+    // * {
+    //     color: #61f1f1;
+    // }
 
     #academy-name, #blurb, h2, #false-mission, #true-mission {
         text-align: center;
@@ -59,4 +59,29 @@ nav {
     #joke-question, #joke-answer {
         font-family:"Comic Sans MS", "Comic Sans", "Comic Neue", sans-serif, cursive;
     }
+}
+
+#campuses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+
+    #campus-list-item {
+        display: flex;
+        flex-direction: column;
+        height: 40vh;
+        width: 40vw
+    }
+
+}
+
+
+#selected-campus-name {
+    font-size: 48px;
+    text-align: center
+}
+
+#selected-campus-description {
+    font-size: 24px;
 }

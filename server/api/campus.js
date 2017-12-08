@@ -1,5 +1,5 @@
 const campusRouter = require('express').Router()
-const { Campus } = require('../db/models')
+const { Campus, Student } = require('../db/models')
 
 
 campusRouter.get('/', (req, res, next) => {
@@ -9,8 +9,10 @@ campusRouter.get('/', (req, res, next) => {
 })
 
 campusRouter.get('/:campusId', (req, res, next) => {
-  Campus.findById(req.params.campusId)
-    .then(foundCampus => res.status(200).json(foundCampus))
+  Campus.findById(req.params.campusId, {include: [Student]})
+    .then(foundCampus => {
+      res.status(200).json(foundCampus)
+    })
     .catch(next)
 })
 

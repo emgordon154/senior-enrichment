@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const initialStudents = []
 
-const GOT_STUDENTS = 'GET_STUDENTS'
+const GOT_STUDENTS = 'GOT_STUDENTS'
 
 const gotStudents = students => ({
   type: GOT_STUDENTS,
@@ -11,9 +11,13 @@ const gotStudents = students => ({
 
 export const getStudentsFromServer = () => {
   return dispatch => {
-    axios.get('/student')
+    axios.get('/api/student')
       .then(res => res.data)
       .then(students => dispatch(gotStudents(students)))
+      .catch(err => {
+        console.log('uh oh lmao')
+        console.error(err)
+      })
   }
 }
 

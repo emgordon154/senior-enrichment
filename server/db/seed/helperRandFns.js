@@ -1,7 +1,7 @@
 
 // returns a random integer in a range inclusive of both min and max
 const randInt = (min, max) => {
-  return Math.round( min + Math.floor( Math.random() * (max + 1) ) )
+  return Math.round( min + Math.floor( Math.random() * (max - min + 1) ) )
 }
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'
@@ -45,13 +45,15 @@ const randomStudent = () => {
     firstName: randomName(),
     lastName: randomName(),
     email: randomEmail(),
-    gpa: randomGPA()
+    gpa: randomGPA(),
+    campusId: randInt(1, 6)
   }
 }
 
 const randomCampus = () => {
   return {
-    name: randomName() + ' Academy'
+    name: randomName() + ' Academy',
+    description: [...Array(100)].map( _ => randomName() ).join` `
   }
 }
 

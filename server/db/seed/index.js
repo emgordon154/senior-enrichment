@@ -14,9 +14,13 @@ const jokes = require('./joke')
 
 db.sync({force: true})
   .then(() => Promise.all([
-    Student.bulkCreate(students),
     Campus.bulkCreate(campuses),
     Joke.bulkCreate(jokes)
   ]))
+  // Must create campuses before students to avoid invalid foreign keys!
+  .then(() => Student.bulkCreate(students))
   .then(() => console.log('refresh Postico! :3c'))
-  .catch(() => console.error('😱'))
+  .catch((err) => {
+    console.log('😱')
+    console.error(err)
+  })

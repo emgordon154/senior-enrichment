@@ -9,7 +9,6 @@ import store from './store'
 
 import Root from './components/Root'
 
-
 render(
   <Root store={store} />,
   document.getElementById('main')
