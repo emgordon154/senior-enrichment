@@ -13,8 +13,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const CampusList = props => (
-  <div>
-    <ul id="campuses">
+  <div id="campuses">
+    <ul id="campuses-list">
       {props.campuses.map(campus => (
         <Link to={`/campus/${campus.id}`} key={campus.id} className="campus-list-item">
           <img src="/img/earth.jpg" />

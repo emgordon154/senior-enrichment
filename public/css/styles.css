@@ -1,5 +1,5 @@
 nav {
-  background-color: #23953f;
+  background-color: #2b723c;
   border-width: 3px;
   border-color: #0e62a7;
   display: flex;
@@ -8,7 +8,9 @@ nav {
 
 .navlink {
   font-size: 36px;
-  transition: all 1s ease; }
+  transition: all 1s ease;
+  text-decoration: none;
+  color: #203; }
   .navlink:hover {
     font-size: 48px;
     text-shadow: 12px 12px 3 #0c3150; }
@@ -42,7 +44,8 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-content: center; }
+  align-content: center;
+  background-color: #030c14; }
   #campuses #campus-list-item {
     display: flex;
     flex-direction: column;

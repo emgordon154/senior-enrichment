@@ -2,7 +2,7 @@
 // absolutely no way to get VSCode's builtin color picker to work with it :(((
 
 nav {
-    background-color: #23953f;
+    background-color: #2b723c;
     border-width: 3px;
     border-color: #0e62a7;
     display: flex;
@@ -11,8 +11,13 @@ nav {
 }
 
 .navlink {
+
     font-size: 36px;
     transition: all 1s ease;
+
+    text-decoration: none /* !important */;
+    color: #203 /* !important */;
+    // not important ENOUGH! see Navbar.jsx for inline styling :/
 
     &:hover {
         font-size: 48px;
@@ -66,6 +71,7 @@ nav {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: center;
+    background-color: #030c14;
 
     #campus-list-item {
         display: flex;
