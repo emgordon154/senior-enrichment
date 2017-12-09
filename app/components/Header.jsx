@@ -3,7 +3,7 @@ import React from 'react'
 import Navbar from './Navbar'
 
 const Header = () => (
-  <header>
+  <header id="real-header-not-react-one">
     <Navbar />
   </header>
 )

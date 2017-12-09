@@ -14,13 +14,29 @@ const mapDispatchToProps = dispatch => {
 
 const StudentList = props => (
   <div>
-    <ul>
-      {props.students.map(student => (
-        <div key={student.id}>
-          {student.name}
-        </div>
-      ))}
-    </ul>
+    <div id="student-list-ctrls">
+      <button id="create-student-btn" />
+    </div>
+    <div id="student-table-container">
+      <div id="student-table-col-names">
+        <div>ID # in database</div>
+        <div>Name</div>
+        <div>Campus</div>
+        <div>Email</div>
+      </div>
+      <div>
+        <ul id="student-table-rows">
+          {props.students.map(student => (
+            <li key={student.id} className="student-table-row">
+              <div>{student.name}</div>
+              <div>{student.campus.name}</div>
+              <div>{student.gpa}</div>
+              <div>{student.email}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   </div>
 )
 

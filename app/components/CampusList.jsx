@@ -13,14 +13,17 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const CampusList = props => (
-  <div id="campuses">
-    <ul id="campuses-list">
-      {props.campuses.map(campus => (
-        <Link to={`/campus/${campus.id}`} key={campus.id} className="campus-list-item">
-          <img src="/img/earth.jpg" />
-          <h2>{campus.name}</h2>
-        </Link>
-      ))}
+  <div>
+    <img src="/img/space.jpg" id="space-img" />
+    <ul id="campus-list">
+        {props.campuses.map(campus => (
+        <li key={campus.id} className="campus-list-element">
+          <Link to={`/campus/${campus.id}`} className="link-to-campus">
+            <img src="/img/earth-trans-640.png" />
+            <h2>{campus.name}</h2>
+          </Link>
+        </li>
+        ))}
     </ul>
   </div>
 )

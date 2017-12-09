@@ -1,62 +1,154 @@
+#real-header-not-react-one {
+  height: 2.5rem;
+}
+
 nav {
-  background-color: #2b723c;
-  border-width: 3px;
+  z-index: 10;
+  position: fixed;
+  top: -2rem;
+  left: 1vw;
+  width: 98vw;
+  background-color: rgba(43, 114, 35, 0.7);
+  border-radius: 3px;
+  border-style: solid;
   border-color: #0e62a7;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  transition: all 1s ease;
+}
+
+nav:hover {
+  top: -.1rem;
+}
 
 .navlink {
   font-size: 36px;
   transition: all 1s ease;
   text-decoration: none;
-  color: #203; }
-  .navlink:hover {
-    font-size: 48px;
-    text-shadow: 12px 12px 3 #0c3150; }
+  background-image: radial-gradient(ellipse at center, rgba(149, 158, 25, 0.66) 1%, rgba(149, 158, 25, 0) 100%);
+  color: #203;
+}
 
-#about-academy #academy-name, #about-academy #blurb, #about-academy h2, #about-academy #false-mission, #about-academy #true-mission {
-  text-align: center; }
+.navlink:hover {
+  background-image: radial-gradient(ellipse at center, #0f5c2c 1%, rgba(15, 92, 44, 0) 100%);
+  color: #199e97;
+  text-shadow: 12px 12px 3 #0c3150;
+}
+
+.beneath-nav-bar {
+  position: absolute;
+  top: 48px;
+  width: 100vw;
+}
+
+#about-academy #academy-name,
+#about-academy #blurb,
+#about-academy h2,
+#about-academy #mission {
+  text-align: center;
+}
 
 #about-academy #academy-name {
-  font-size: 42px; }
+  font-size: 42px;
+}
 
 #about-academy #blurb {
-  font-size: 30px; }
+  font-size: 30px;
+}
 
 #about-academy h2 {
-  font-size: 36px; }
+  font-size: 36px;
+}
+
+#about-academy #mission-statement {
+  display: flex;
+  flex-wrap: true;
+  justify-content: center;
+  font-size: 1.5rem;
+}
 
 #about-academy #false-mission {
-  font-size: 18px;
-  text-decoration: line-through; }
-
-#about-academy #true-mission {
-  font-size: 24px; }
+  text-decoration: line-through;
+}
 
 #about-academy #note-to-self {
-  font-style: italic; }
+  font-style: italic;
+}
 
-#about-academy #joke-question, #about-academy #joke-answer {
-  font-family: "Comic Sans MS", "Comic Sans", "Comic Neue", sans-serif, cursive; }
-
-#campuses {
+#campus-list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: center;
-  background-color: #030c14; }
-  #campuses #campus-list-item {
-    display: flex;
-    flex-direction: column;
-    height: 40vh;
-    width: 40vw; }
+  margin: 0;
+  list-style-type: none;
+}
+
+#campus-list .link-to-campus {
+  text-decoration: none;
+}
+
+#campus-list .link-to-campus h2 {
+  min-width: 0;
+  opacity: 1;
+  background-image: linear-gradient(to right, rgba(13, 3, 22, 0) 0%, rgba(13, 3, 22, 0.7) 50%, rgba(13, 3, 22, 0) 100%);
+  font-size: 36px;
+  color: #1eb4b4;
+  text-align: center;
+  transition: all 1s ease;
+}
+
+#campus-list .link-to-campus:hover h2 {
+  background-image: radial-gradient(ellipse at center, #922357 1%, rgba(35, 73, 132, 0) 100%);
+  color: #77c413;
+}
+
+#space-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: -1;
+}
 
 #selected-campus-name {
   font-size: 48px;
-  text-align: center; }
+  text-align: center;
+}
 
 #selected-campus-description {
-  font-size: 24px; }
+  font-size: 24px;
+}
+
+#student-table-col-names {
+  display: flex;
+  justify-content: space-around;
+}
+
+#student-table-rows {
+  display: flex;
+  flex-direction: column;
+  list-style-type: decimal;
+}
+
+.student-table-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+}
+
+#joke-question,
+#joke-answer {
+  font-family: "Comic Sans MS", "Comic Sans", "Comic Neue", sans-serif, cursive;
+}
+
+#joke-intro {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 
 /*# sourceMappingURL=styles.css.map*/

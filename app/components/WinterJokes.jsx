@@ -20,7 +20,8 @@ const mapDispatchToProps = (dispatch) => {
 const emojify = joke => joke.replace(/O/ig, '😂') // ;)
 
 const WinterJokes = props => ( props.joke &&
-  <div>
+  <div id="jokes">
+    <p id="joke-intro">It's winter back on Earth! Maybe some jokes about the cold season will warm up your soul in the cold vacuum of space!</p>
     <h1 onClick={props.handleClick(props.answered)} id="joke-question">
       {props.joke.question}
     </h1>

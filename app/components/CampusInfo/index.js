@@ -1,7 +1,12 @@
+// This file is the only component that ends in .js
+// because i'm lazy and don't want to rewrite my imports
+// of './CampusInfo' to './CampusInfo/index.jsx' lmao
+
 import React from 'react'
 import { connect } from 'react-redux'
-import { getSelectedCampusFromServer } from '../reducers/CampusInfo'
+import { getSelectedCampusFromServer } from '../../reducers/CampusInfo'
 import { withRouter } from 'react-router-dom'
+import OrdinaryCampus from './OrdinaryCampus'
 
 const mapStateToProps = state => {
   return { campus: state.campus }
@@ -13,18 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const CampusInfo = props => {
-  let campus = props.campus
-  return ( campus.students ?
-    <div id="selected-campus">
-      <h2 id="selected-campus-name">{campus.name}</h2>
-      <p id="selected-campus-description">{campus.description}</p>
-      <ul>
-        {campus.students.map(student => (
-          <li key={student.id}>{student.name}</li>
-        ))}
-      </ul>
-    </div> : null
-  )
+  return OrdinaryCampus(props)
 }
 
 const CampusInfoContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(CampusInfo))
