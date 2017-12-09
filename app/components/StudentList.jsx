@@ -15,7 +15,9 @@ const mapDispatchToProps = dispatch => {
 const StudentList = props => (
   <div>
     <div id="student-list-ctrls">
-      <button id="create-student-btn" />
+      <button id="create-student-btn">
+        Create new student
+      </button>
     </div>
     <div id="student-table-container">
       <div id="student-table-col-names">
@@ -29,10 +31,13 @@ const StudentList = props => (
         <ul id="student-table-rows">
           {props.students.map(student => (
             <li key={student.id} className="student-table-row">
-              <div class="student-name">{student.name}</div>
-              <div class="student-campus">{student.campus.name}</div>
-              <div class="student-gpa">{student.gpa}</div>
-              <div class="student-email">{student.email}</div>
+              <div className="student-table-cell student-name">{student.name}</div>
+              <div className="student-table-cell student-campus">{student.campus.name}</div>
+              <div className="student-table-cell student-gpa">{student.gpa}</div>
+              <div className="student-table-cell student-email">{student.email}</div>
+              <button className="delete-student-btn" id={`delete-student-${student.id}`}>
+                Delete student
+              </button>
             </li>
           ))}
         </ul>

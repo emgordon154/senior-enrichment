@@ -8,7 +8,7 @@
 nav {
     z-index: 10;
     position: fixed;
-    top: -2rem;
+    top: -2.1rem;
     left: 1vw;
     width: 98vw;
     background-color: rgba(43,114,35,.7);
@@ -26,18 +26,20 @@ nav {
 }
 
 .navlink {
-    font-size: 36px;
-    transition: all 1s ease;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30pt;
     text-decoration: none;
     // background-color: rgba(147, 158, 25, 0.329);
     background-image: 
         radial-gradient(ellipse at center, rgba(149, 158, 25, 0.66) 1%,rgba(149, 158, 25, 0) 100%);
     color: #203;
 
+    transition: color .8s ease, background-image 1s ease;
+
     &:hover {
         background-image: 
             radial-gradient(ellipse at center, rgba(15, 92, 44, 1) 1%,rgba(15, 92, 44, 0) 100%);
-        color: #199e97;
+        color: #41c2b9;
         // background-color: #203;
         // font-size: 48px;
         text-shadow: 12px 12px 3 #0c3150
@@ -111,9 +113,17 @@ nav {
         // width: 20vw;
         text-decoration: none;
 
-        img {
+        // img {
+        //     height: 80%;
+        //     width: 80%;
 
-        }
+        //     transition: all 1s ease; // this looked so bad lmao
+
+        //     &:hover {
+        //         height: 80%;
+        //         width: 100%
+        //     }
+        // }
 
         h2 {
             min-width: 0;
@@ -122,6 +132,7 @@ nav {
             background-image:
                 linear-gradient(to right, rgba(13,3,22,0) 0%,rgba(13,3,22,.7) 50%,rgba(13,3,22,0) 100%);
             font-size: 36px;
+            // font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             color: rgb(30, 180, 180);
             text-align: center;
             // text-decoration: none; // must be on the <a> element
@@ -156,20 +167,23 @@ nav {
     font-size: 24px;
 }
 
-// #student-list-ctrls {
+#student-list-ctrls {
+    display: flex;
+    justify-content: flex-end
+}
 
-// }
-
-// #create-student-btn {
-
-// }
+#create-student-btn {
+    font-size: 1.5rem
+}
 
 #student-table-col-names {
+    border-style: solid;
     display: flex;
     justify-content: space-around
 }
 
 #student-table-rows {
+    border-style: solid;
     left: 5vw;
     width: 90vw;
     display: flex;
@@ -180,7 +194,17 @@ nav {
 .student-table-row {
     display: flex;
     justify-content: space-between;
-    font-size: 24px
+    font-size: 24px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #808080
+}
+
+.student-table-cell {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #808080;
+    width: 25%
 }
 
 #joke-question, #joke-answer {

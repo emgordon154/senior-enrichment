@@ -5,7 +5,7 @@
 nav {
   z-index: 10;
   position: fixed;
-  top: -2rem;
+  top: -2.1rem;
   left: 1vw;
   width: 98vw;
   background-color: rgba(43, 114, 35, 0.7);
@@ -23,16 +23,17 @@ nav:hover {
 }
 
 .navlink {
-  font-size: 36px;
-  transition: all 1s ease;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 30pt;
   text-decoration: none;
   background-image: radial-gradient(ellipse at center, rgba(149, 158, 25, 0.66) 1%, rgba(149, 158, 25, 0) 100%);
   color: #203;
+  transition: color .8s ease, background-image 1s ease;
 }
 
 .navlink:hover {
   background-image: radial-gradient(ellipse at center, #0f5c2c 1%, rgba(15, 92, 44, 0) 100%);
-  color: #199e97;
+  color: #41c2b9;
   text-shadow: 12px 12px 3 #0c3150;
 }
 
@@ -123,12 +124,23 @@ nav:hover {
   font-size: 24px;
 }
 
+#student-list-ctrls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#create-student-btn {
+  font-size: 1.5rem;
+}
+
 #student-table-col-names {
+  border-style: solid;
   display: flex;
   justify-content: space-around;
 }
 
 #student-table-rows {
+  border-style: solid;
   left: 5vw;
   width: 90vw;
   display: flex;
@@ -140,6 +152,16 @@ nav:hover {
   display: flex;
   justify-content: space-between;
   font-size: 24px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #808080;
+}
+
+.student-table-cell {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #808080;
+  width: 25%;
 }
 
 #joke-question,
