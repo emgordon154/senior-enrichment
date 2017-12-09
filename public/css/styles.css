@@ -129,6 +129,8 @@ nav:hover {
 }
 
 #student-table-rows {
+  left: 5vw;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   list-style-type: decimal;

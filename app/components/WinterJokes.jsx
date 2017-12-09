@@ -21,7 +21,15 @@ const emojify = joke => joke.replace(/O/ig, '😂') // ;)
 
 const WinterJokes = props => ( props.joke &&
   <div id="jokes">
-    <p id="joke-intro">It's winter back on Earth! Maybe some jokes about the cold season will warm up your soul in the cold vacuum of space!</p>
+    <p id="joke-intro">It's winter back on Earth!
+      Maybe some jokes about the cold season
+      will warm up your soul in the cold vacuum of space!
+      Click on the joke below to reveal the answer, and
+      click it again to display another joke! Don't worry,
+      if you're seeing this page, then the jokes won't stop
+      displaying even if the server crashes, because your
+      browser has already retrieved all jokes from the server
+      and is storing them in your own computer's memory!</p>
     <h1 onClick={props.handleClick(props.answered)} id="joke-question">
       {props.joke.question}
     </h1>

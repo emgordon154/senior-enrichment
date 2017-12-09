@@ -19,19 +19,20 @@ const StudentList = props => (
     </div>
     <div id="student-table-container">
       <div id="student-table-col-names">
-        <div>ID # in database</div>
+        {/* <div>ID # in database</div> */}
         <div>Name</div>
         <div>Campus</div>
+        <div>GPA</div>
         <div>Email</div>
       </div>
       <div>
         <ul id="student-table-rows">
           {props.students.map(student => (
             <li key={student.id} className="student-table-row">
-              <div>{student.name}</div>
-              <div>{student.campus.name}</div>
-              <div>{student.gpa}</div>
-              <div>{student.email}</div>
+              <div class="student-name">{student.name}</div>
+              <div class="student-campus">{student.campus.name}</div>
+              <div class="student-gpa">{student.gpa}</div>
+              <div class="student-email">{student.email}</div>
             </li>
           ))}
         </ul>
