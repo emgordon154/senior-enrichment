@@ -5,7 +5,7 @@ import About from './About'
 import CampusList from './CampusList'
 import StudentList from './StudentList'
 import CampusInfo from './CampusInfo'
-// import StudentInfo from './StudentInfo'
+import StudentInfo from './StudentInfo'
 
 import {Switch, Route, Redirect} from 'react-router-dom'
 
@@ -18,6 +18,7 @@ const App = () => (
       <Route exact path="/campus" component={CampusList} />
       <Route path="/campus/:campusId" component={CampusInfo} />
       <Route exact path="/student" component={StudentList} />
+      <Route path="/student/:studentId" component={StudentInfo} />
       {/* <Route path="/student/:studentId" component={StudentInfo} /> */}
       <Redirect to="/" />
     </Switch>

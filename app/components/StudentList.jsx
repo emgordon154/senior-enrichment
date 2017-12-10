@@ -1,19 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getStudentsFromServer } from '../reducers/StudentList'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
-const mapStateToProps = state => {
-  return { students: state.students }
-}
+const mapStateToProps = (state, ownProps) => (
+  ownProps.students
+    ? { students: ownProps.students }
+    : { students: state.students }
+)
 
-const mapDispatchToProps = dispatch => {
-  dispatch(getStudentsFromServer())
+const mapDispatchToProps = (dispatch, ownProps) => {
+  if (!ownProps.students) dispatch(getStudentsFromServer())
   return {}
 }
 
 const StudentList = props => (
-  <div>
+  props.students && <div>
     <div id="student-list-ctrls">
       <button id="create-student-btn">
         Create new student
@@ -23,7 +25,7 @@ const StudentList = props => (
       <div id="student-table-col-names">
         {/* <div>ID # in database</div> */}
         <div>Name</div>
-        <div>Campus</div>
+        {props.students.some(student => student.campus) && <div>Campus</div>}
         <div>GPA</div>
         <div>Email</div>
       </div>
@@ -31,8 +33,19 @@ const StudentList = props => (
         <ul id="student-table-rows">
           {props.students.map(student => (
             <li key={student.id} className="student-table-row">
-              <div className="student-table-cell student-name">{student.name}</div>
-              <div className="student-table-cell student-campus">{student.campus.name}</div>
+              <Link
+                to= {`/student/${student.id}`}
+                className="student-table-cell student-name">
+              >
+                {student.name}
+              </Link>
+              {student.campus && <Link
+                  to={`/campus/${student.campus.id}`}
+                  className="student-table-cell student-campus"
+                >
+                  {student.campus.name}
+                </Link>
+              }
               <div className="student-table-cell student-gpa">{student.gpa}</div>
               <div className="student-table-cell student-email">{student.email}</div>
               <button className="delete-student-btn" id={`delete-student-${student.id}`}>

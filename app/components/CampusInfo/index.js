@@ -1,8 +1,11 @@
+// This file is in case I want to add special functionality
+// for certain campuses only
+
 // This file is the only component that ends in .js
 // because i'm lazy and don't want to rewrite my imports
 // of './CampusInfo' to './CampusInfo/index.jsx' lmao
 
-import React from 'react'
+// import React from 'react'
 import { connect } from 'react-redux'
 import { getSelectedCampusFromServer } from '../../reducers/CampusInfo'
 import { withRouter } from 'react-router-dom'

@@ -9,7 +9,7 @@ studentRouter.get('/', (req, res, next) => {
 })
 
 studentRouter.get('/:studentId', (req, res, next) => {
-  Student.findById(req.params.studentId)
+  Student.findById(req.params.studentId, {include: Campus})
     .then(foundStudent => res.status(200).json(foundStudent))
     .catch(next)
 })

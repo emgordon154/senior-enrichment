@@ -95,14 +95,14 @@ nav:hover {
   min-width: 0;
   opacity: 1;
   background-image: linear-gradient(to right, rgba(13, 3, 22, 0) 0%, rgba(13, 3, 22, 0.7) 50%, rgba(13, 3, 22, 0) 100%);
-  font-size: 36px;
+  font-size: 32pt;
   color: #1eb4b4;
   text-align: center;
   transition: all 1s ease;
 }
 
 #campus-list .link-to-campus:hover h2 {
-  background-image: radial-gradient(ellipse at center, #922357 1%, rgba(35, 73, 132, 0) 100%);
+  background-image: radial-gradient(ellipse at center, #922357 1%, rgba(35, 73, 132, 0) 85%);
   color: #77c413;
 }
 
@@ -162,6 +162,15 @@ nav:hover {
   border-width: 1px;
   border-color: #808080;
   width: 25%;
+}
+
+#selected-student {
+  text-align: center;
+}
+
+#selected-student-campus-pic {
+  height: 50%;
+  width: 50%;
 }
 
 #joke-question,

@@ -18,8 +18,8 @@ const CampusList = props => (
     <ul id="campus-list">
         {props.campuses.map(campus => (
         <li key={campus.id} className="campus-list-element">
-          <Link to={`/campus/${campus.id}`} className="link-to-campus">
-            <img src="/img/earth-trans-640.png" />
+          <Link to={`/campus/${campus.id}`} className="link-to-campus" >
+            <img src={campus.imageUrl} />
             <h2>{campus.name}</h2>
           </Link>
         </li>

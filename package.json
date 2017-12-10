@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start:dev": "webpack -w & nodemon main.js",
-    "start": "node main"
+    "start": "node main",
+    "seed": "node ./server/db/seed"
   },
   "keywords": [
     "react",

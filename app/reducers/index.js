@@ -4,12 +4,14 @@ import jokeState from './WinterJokes'
 import campuses from './CampusList'
 import campus from './CampusInfo'
 import students from './StudentList'
+import student from './StudentInfo'
 
 const rootReducer = combineReducers({
   jokeState,
   campuses,
   campus,
-  students
+  students,
+  student
 })
 
 // const initialState = {}
