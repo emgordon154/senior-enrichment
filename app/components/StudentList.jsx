@@ -1,17 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getStudentsFromServer } from '../reducers/StudentList'
+import { getStudentsFromServer, deleteStudentOnServer } from '../reducers/StudentList'
 import { withRouter, Link } from 'react-router-dom'
 
-const mapStateToProps = (state, ownProps) => (
-  ownProps.students
-    ? { students: ownProps.students }
-    : { students: state.students }
+const mapStateToProps = state => (
+  // ownProps.students
+  //   ? { students: ownProps.students }
+  //   :
+  { students: state.students }
 )
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   if (!ownProps.students) dispatch(getStudentsFromServer())
-  return {}
+  return {
+    handleDeleteClick: event => {
+      console.log(event.target)
+      const studentId = event.target.id.split('-')[2]
+      dispatch(deleteStudentOnServer(studentId))
+    }
+  }
 }
 
 const StudentList = props => (
@@ -31,28 +38,36 @@ const StudentList = props => (
       </div>
       <div>
         <ul id="student-table-rows">
-          {props.students.map(student => (
-            <li key={student.id} className="student-table-row">
-              <Link
-                to= {`/student/${student.id}`}
-                className="student-table-cell student-name">
-              >
-                {student.name}
-              </Link>
-              {student.campus && <Link
-                  to={`/campus/${student.campus.id}`}
-                  className="student-table-cell student-campus"
+          {(props.campusId
+              ? props.students.filter(student => student.campusId === props.campusId)
+              : props.students
+          )
+            .map(student => (
+              <li key={student.id} className="student-table-row">
+                <Link
+                  to= {`/student/${student.id}`}
+                  className="student-table-cell student-name">
                 >
-                  {student.campus.name}
+                  {student.name}
                 </Link>
-              }
-              <div className="student-table-cell student-gpa">{student.gpa}</div>
-              <div className="student-table-cell student-email">{student.email}</div>
-              <button className="delete-student-btn" id={`delete-student-${student.id}`}>
-                Delete student
-              </button>
-            </li>
-          ))}
+                {student.campus && <Link
+                    to={`/campus/${student.campus.id}`}
+                    className="student-table-cell student-campus"
+                  >
+                    {student.campus.name}
+                  </Link>
+                }
+                <div className="student-table-cell student-gpa">{student.gpa}</div>
+                <div className="student-table-cell student-email">{student.email}</div>
+                <button
+                  className="delete-student-btn"
+                  id={`delete-student-${student.id}`}
+                  onClick={props.handleDeleteClick}
+                >
+                  Delete student
+                </button>
+              </li>
+            ))}
         </ul>
       </div>
     </div>

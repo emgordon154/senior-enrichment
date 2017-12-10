@@ -46,11 +46,16 @@ nav {
     }
 }
 
-.beneath-nav-bar {
-    position: absolute;
-    top: 48px;
-    width: 100vw
-}
+// .beneath-nav-bar {
+//     position: absolute;
+//     top: 48px;
+//     width: 100vw
+// }
+
+// #all-beneath-header {
+//     background-color: #08141f;
+//     color: rgb(240, 196, 3)
+// }
 
 #about-academy {
     // background-color: #010214;
@@ -207,8 +212,10 @@ nav {
     width: 25%
 }
 
-#selected-student {
+#student-info {
     text-align: center;
+    // background-color: #08141f;
+    // color: rgb(240, 196, 3)
 }
 
 #selected-student-campus-pic {

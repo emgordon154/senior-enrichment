@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const StudentInfo = props => {
   let student = props.student
   return ( student.id ?
-    <div id="selected-student">
+    <div id="student-info">
       <h2 id="selected-student-name">{student.name}</h2>
       <h2 id="selected-student-gpa">GPA: {student.gpa}</h2>
       <h2 id="selected-student-email">Email: {student.email}</h2>

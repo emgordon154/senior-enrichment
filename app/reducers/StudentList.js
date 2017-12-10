@@ -9,11 +9,32 @@ const gotStudents = students => ({
   students
 })
 
+
 export const getStudentsFromServer = () => {
-  return dispatch => {
+  return dispatch => (
     axios.get('/api/student')
       .then(res => res.data)
       .then(students => dispatch(gotStudents(students)))
+      .catch(err => {
+        console.log('uh oh lmao')
+        console.error(err)
+      })
+    )
+}
+
+const DELETED_STUDENT = 'DELETED_STUDENT'
+
+const deletedStudent = studentId => ({
+  type: DELETED_STUDENT,
+  studentId
+})
+
+export const deleteStudentOnServer = studentId => {
+  return dispatch => {
+    axios.delete(`/api/student/${studentId}`)
+      // .then(res => res.data)
+      .then(() => dispatch(deletedStudent(studentId)))
+      .then(() => dispatch(getStudentsFromServer()))
       .catch(err => {
         console.log('uh oh lmao')
         console.error(err)
@@ -24,6 +45,10 @@ export const getStudentsFromServer = () => {
 export default function reducer(students = initialStudents, action) {
   switch (action.type) {
     case GOT_STUDENTS: return action.students
+
+    case DELETED_STUDENT:
+      return students
+        .filter(student => student.id !== action.studentId)
 
     default: return students
   }

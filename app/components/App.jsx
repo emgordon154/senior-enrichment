@@ -13,7 +13,7 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 const App = () => (
   <header>
     <Header />
-    <Switch >
+    <Switch>
       <Route exact path="/" component={About} />
       <Route exact path="/campus" component={CampusList} />
       <Route path="/campus/:campusId" component={CampusInfo} />

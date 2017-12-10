@@ -16,7 +16,7 @@ const OrdinaryCampus = props => {
           </li>
         ))}
       </ul> */}
-      <StudentList students={campus.students} />
+      <StudentList campusId={campus.id} />
       {/* <StudentList filterByCampusId={campus.id} /> */}
     </div> : null
   )
