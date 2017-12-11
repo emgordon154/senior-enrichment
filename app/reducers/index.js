@@ -3,15 +3,19 @@ import { combineReducers } from 'redux'
 import jokeState from './WinterJokes'
 import campuses from './CampusList'
 import campus from './CampusInfo'
+import campusForm from './NewCampusEntry'
 import students from './StudentList'
 import student from './StudentInfo'
+import studentForm from './NewStudentEntry'
 
 const rootReducer = combineReducers({
   jokeState,
   campuses,
   campus,
+  campusForm,
   students,
-  student
+  student,
+  studentForm
 })
 
 // const initialState = {}

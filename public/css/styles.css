@@ -158,6 +158,14 @@ nav:hover {
   width: 25%;
 }
 
+.student-gpa {
+  width: 5%;
+}
+
+.student-email {
+  width: 30%;
+}
+
 #student-info {
   text-align: center;
 }

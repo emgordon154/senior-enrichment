@@ -16,7 +16,10 @@ const Student = db.define('student', {
     type: Sequelize.VIRTUAL,
     get: function() {
       return [this.getDataValue('firstName'), this.getDataValue('lastName')].join` `
-    }
+    },
+    // set: function() {
+    //   this.setDataValue
+    // }
   },
   email: {
     type: Sequelize.STRING,

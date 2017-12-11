@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { getCampusesFromServer } from '../reducers/CampusList'
 import { withRouter, Link } from 'react-router-dom'
 
+// import SpaceMusic from './SpaceMusic'
+
 const mapStateToProps = state => {
   return { campuses: state.campuses }
 }

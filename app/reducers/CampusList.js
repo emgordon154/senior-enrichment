@@ -21,9 +21,50 @@ export const getCampusesFromServer = () => (
   )
 )
 
+const DELETED_CAMPUS = 'DELETED_CAMPUS'
+
+export const deletedCampus = campusId => ({
+  type: DELETED_CAMPUS,
+  campusId
+})
+
+const CAMPUS_CREATED = 'CAMPUS_CREATED'
+
+export const campusCreated = createdCampus => ({
+  type: CAMPUS_CREATED,
+  createdCampus
+})
+
+const CAMPUS_UPDATED = 'CAMPUS_UPDATED'
+
+export const campusUpdated = updatedCampus => ({
+  type: CAMPUS_UPDATED,
+  updatedCampus
+})
+
+
 export default function reducer(campuses = initialCampuses, action) {
   switch (action.type) {
     case GOT_CAMPUSES: return action.campuses
+
+  case CAMPUS_CREATED:
+    return campuses
+              .concat(action.createdCampus)
+                .sort((campusA, campusB) => campusA.id - campusB.id)
+
+  case CAMPUS_UPDATED:
+    let updatedCampusIndex = campuses.findIndex(
+      campus => +campus.id === +action.updatedCampus.id)
+    return campuses.slice(0, updatedCampusIndex)
+            .concat(
+              action.updatedCampus,
+              campuses.slice(updatedCampusIndex + 1)
+            )
+
+  case DELETED_CAMPUS:
+    return campuses
+      .filter(campus => campus.id !== action.campusId)
+
 
     default: return campuses
   }
