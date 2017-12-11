@@ -82,6 +82,7 @@ nav:hover {
 }
 
 #campus-list .link-to-campus {
+  text-align: center;
   text-decoration: none;
 }
 
@@ -183,6 +184,20 @@ nav:hover {
 #joke-intro {
   text-align: center;
   font-size: 1.5rem;
+}
+
+#campus-entry-form {
+  color: #fca83b;
+}
+
+.delete-campus-btn {
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 28;
+  color: crimson;
+  display: inline-block;
+  background-image: radial-gradient(ellipse at center, rgba(13, 20, 1, 0.616) 1%, transparent 85%);
 }
 
 

@@ -50,10 +50,16 @@ const randomStudent = () => {
   }
 }
 
+const randomSentence = () => {
+  let sentence = randomName()
+  for (let i = 0; i < randInt(3, 10); i++) sentence += ' ' + randomName().toLowerCase()
+  return sentence + '.'
+}
+
 const randomCampus = () => {
   return {
     name: randomName() + ' Academy',
-    description: [...Array(100)].map( _ => randomName() ).join` `
+    description: [...Array(10)].map( _ => randomSentence() ).join` `
   }
 }
 

@@ -15,7 +15,7 @@ studentRouter.get('/:studentId', (req, res, next) => {
 })
 
 studentRouter.post('/', (req, res, next) => {
-  Student.create(req.body)
+  Student.create(req.body, {include: Campus})
     .then(createdStudent => res.status(201).json(createdStudent))
     .catch(next)
 })

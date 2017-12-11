@@ -3,12 +3,9 @@ import { connect } from 'react-redux'
 import { getStudentsFromServer, deleteStudentOnServer } from '../reducers/StudentList'
 import { withRouter, Link } from 'react-router-dom'
 
-const mapStateToProps = state => (
-  // ownProps.students
-  //   ? { students: ownProps.students }
-  //   :
-  { students: state.students }
-)
+import NewStudentEntry from './NewStudentEntry'
+
+const mapStateToProps = ({ students }) => ({ students })
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   if (!ownProps.students) dispatch(getStudentsFromServer())
@@ -24,9 +21,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const StudentList = props => (
   props.students && <div>
     <div id="student-list-ctrls">
-      <button id="create-student-btn">
+      {/* <button id="create-student-btn">
         Create new student
-      </button>
+      </button> */}
+      <NewStudentEntry />
     </div>
     <div id="student-table-container">
       <div id="student-table-col-names">

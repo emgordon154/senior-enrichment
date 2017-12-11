@@ -28,6 +28,19 @@ export const deletedCampus = campusId => ({
   campusId
 })
 
+export const deleteCampusOnServer = campusId => {
+  return dispatch => {
+    axios.delete(`/api/campus/${campusId}`)
+    // .then(res => res.data)
+    .then(() => dispatch(deletedCampus(campusId)))
+    .then(() => dispatch(getCampusesFromServer()))
+    .catch(err => {
+      console.log('uh oh lmao')
+      console.error(err)
+    })
+  }
+}
+
 const CAMPUS_CREATED = 'CAMPUS_CREATED'
 
 export const campusCreated = createdCampus => ({

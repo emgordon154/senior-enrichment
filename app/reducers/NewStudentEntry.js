@@ -3,18 +3,19 @@ import axios from 'axios'
 import { studentCreated, studentUpdated } from './StudentList'
 
 const initialFormFields = {
-  id: null,
+  id: '',
   firstName: '',
   lastName: '',
-  gpa: null,
-  email: ''
+  gpa: '',
+  email: '',
+  campusId: ''
 }
 
 const STUDENT_FORM_ALTERED = 'STUDENT_FORM_ALTERED'
 
-export const alterStudentForm = fields => ({
+export const alterStudentForm = alteration => ({
   type: STUDENT_FORM_ALTERED,
-  fields
+  alteration
 })
 
 const STUDENT_FORM_SUBMITTED_SO_CLEAR_FORM = 'STUDENT_FORM_SUBMITTED_SO_CLEAR_FORM'
@@ -48,7 +49,7 @@ export default function reducer(formFields = initialFormFields, action) {
     case STUDENT_FORM_ALTERED:
       return {
         ...formFields,
-        ...action.fields
+        ...action.alteration
       }
 
     case STUDENT_FORM_SUBMITTED_SO_CLEAR_FORM:

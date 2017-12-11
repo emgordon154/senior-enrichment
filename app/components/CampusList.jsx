@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getCampusesFromServer } from '../reducers/CampusList'
+import { getCampusesFromServer, deleteCampusOnServer } from '../reducers/CampusList'
 import { withRouter, Link } from 'react-router-dom'
+
+import NewCampusEntry from './NewCampusEntry'
 
 // import SpaceMusic from './SpaceMusic'
 
@@ -11,7 +13,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   dispatch(getCampusesFromServer())
-  return {}
+  return {
+    handleDeleteClick: event => {
+      console.log(event.target)
+      const campusId = event.target.id.split('-')[2]
+      dispatch(deleteCampusOnServer(campusId))
+    }
+  }
 }
 
 const CampusList = props => (
@@ -24,9 +32,16 @@ const CampusList = props => (
             <img src={campus.imageUrl} />
             <h2>{campus.name}</h2>
           </Link>
+          {/* <button 
+            className="delete-campus-btn"
+            id={`delete-campus-${campus.id}`}
+            onClick={props.handleDeleteClick}
+          > Annihilate celestial body??? 
+          </button> */}
         </li>
         ))}
     </ul>
+    <NewCampusEntry />
   </div>
 )
 
