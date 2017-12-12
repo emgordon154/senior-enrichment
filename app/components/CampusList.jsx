@@ -32,12 +32,12 @@ const CampusList = props => (
             <img src={campus.imageUrl} />
             <h2>{campus.name}</h2>
           </Link>
-          {/* <button 
+          <button 
             className="delete-campus-btn"
             id={`delete-campus-${campus.id}`}
             onClick={props.handleDeleteClick}
           > Annihilate celestial body??? 
-          </button> */}
+          </button>
         </li>
         ))}
     </ul>
